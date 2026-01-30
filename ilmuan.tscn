@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://set6hxm5em3u"]
+
+[ext_resource type="Script" uid="uid://cvkb8o5bu50ra" path="res://ilmuan.gd" id="1_5lr32"]
+[ext_resource type="Texture2D" uid="uid://bw0ibm0wecwtx" path="res://Lib/Texture/Prototexture.png" id="2_ha34j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sojyo"]
+radius = 28.160255
+
+[node name="Ilmuan" type="CharacterBody2D" unique_id=11230797]
+script = ExtResource("1_5lr32")
+
+[node name="Colsi" type="CollisionShape2D" parent="." unique_id=1939978049]
+shape = SubResource("CircleShape2D_sojyo")
+debug_color = Color(0.99999994, 0.016033605, 0.02410388, 0.41960785)
+
+[node name="DROP" type="Node2D" parent="." unique_id=505568569]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=244734534]
+zoom = Vector2(0.844, 0.844)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.5
+
+[node name="Senjatas" type="Node2D" parent="." unique_id=325874843]
+
+[node name="Asap" type="Node2D" parent="Senjatas" unique_id=1908838600]
+position = Vector2(-20, 0)
+
+[node name="AWA" type="Sprite2D" parent="." unique_id=1497121813]
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("2_ha34j")

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bx0bj7ua2rjqk"]
+
+[ext_resource type="PackedScene" uid="uid://set6hxm5em3u" path="res://ilmuan.tscn" id="1_f3sb7"]
+
+[sub_resource type="Gradient" id="Gradient_f3sb7"]
+colors = PackedColorArray(0.45233482, 0.42880154, 1.92523e-07, 1, 0, 0.6862745, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fj7yv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tlwt5"]
+width = 1280
+noise = SubResource("FastNoiseLite_fj7yv")
+color_ramp = SubResource("Gradient_f3sb7")
+seamless = true
+
+[node name="World" type="Node2D" unique_id=647407865]
+
+[node name="TERRAIN" type="Sprite2D" parent="." unique_id=1589216148]
+texture = SubResource("NoiseTexture2D_tlwt5")
+
+[node name="TERRAIN" type="Sprite2D" parent="TERRAIN" unique_id=1176321038]
+self_modulate = Color(0.999883, 0.40678725, 0.34381035, 1)
+show_behind_parent = true
+position = Vector2(0, 32)
+texture = SubResource("NoiseTexture2D_tlwt5")
+
+[node name="TERRAIN2" type="Sprite2D" parent="." unique_id=269547956]
+modulate = Color(1.2742168, 1.2742168, 1.2742168, 1)
+position = Vector2(390, -506)
+texture = SubResource("NoiseTexture2D_tlwt5")
+
+[node name="TERRAIN" type="Sprite2D" parent="TERRAIN2" unique_id=1060284739]
+self_modulate = Color(0.999883, 0.40678725, 0.34381035, 1)
+show_behind_parent = true
+position = Vector2(0, 32)
+texture = SubResource("NoiseTexture2D_tlwt5")
+
+[node name="Ilmuan" parent="." unique_id=11230797 instance=ExtResource("1_f3sb7")]

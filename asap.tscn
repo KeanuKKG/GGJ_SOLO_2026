@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://du2jwtapuhceh"]
+
+[ext_resource type="Script" uid="uid://d2k6wl2jhl6au" path="res://asap.gd" id="1_sw5nh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8cjpp"]
+radius = 69.72087
+
+[sub_resource type="Gradient" id="Gradient_sw5nh"]
+offsets = PackedFloat32Array(0.4698795, 0.6566265)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4b67a"]
+gradient = SubResource("Gradient_sw5nh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_8cjpp"]
+resource_name = "Asap"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3.125, 3.125)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1.0952381), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../COL:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(26.007404, 13.007406), Vector2(32.999996, -14.000002)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(26.007408, 13.007408), Vector2(33, -14)]
+}
+
+[sub_resource type="Animation" id="Animation_sw5nh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../COL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4b67a"]
+_data = {
+&"Asap": SubResource("Animation_8cjpp"),
+&"RESET": SubResource("Animation_sw5nh")
+}
+
+[sub_resource type="Gradient" id="Gradient_8cjpp"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sw5nh"]
+frequency = 0.048
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4b67a"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_sw5nh")
+color_ramp = SubResource("Gradient_8cjpp")
+
+[node name="Asap" type="Node2D" unique_id=1513692118]
+top_level = true
+script = ExtResource("1_sw5nh")
+
+[node name="COL" type="Area2D" parent="." unique_id=1037412018]
+
+[node name="Coll1" type="CollisionShape2D" parent="COL" unique_id=1867951424]
+shape = SubResource("CircleShape2D_8cjpp")
+debug_color = Color(0, 0.6509804, 0.15686275, 0)
+
+[node name="DREZ" type="Sprite2D" parent="." unique_id=2126519235]
+clip_children = 1
+scale = Vector2(2.5, 2.5)
+texture = SubResource("GradientTexture2D_4b67a")
+
+[node name="Plosa" type="AnimationPlayer" parent="DREZ" unique_id=230024260]
+libraries/ = SubResource("AnimationLibrary_4b67a")
+autoplay = &"Asap"
+
+[node name="ASEP" type="Sprite2D" parent="DREZ" unique_id=8873147]
+texture = SubResource("NoiseTexture2D_4b67a")
