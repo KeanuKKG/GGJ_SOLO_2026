@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddkww8qadnwm2" path="res://enemy.gd" id="1_qi2p4"]
 [ext_resource type="Texture2D" uid="uid://bw0ibm0wecwtx" path="res://Lib/Texture/Prototexture.png" id="2_iifgy"]
-[ext_resource type="Texture2D" uid="uid://b2eqfcjbduyr1" path="res://Lib/Texture/topeng K1.png" id="3_epg4t"]
+[ext_resource type="Texture2D" uid="uid://dtpfk062ctt02" path="res://Lib/Texture/mask no bg/mask full item.png" id="3_qi2p4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qi2p4"]
 radius = 12.369317
@@ -152,8 +152,9 @@ texture = ExtResource("2_iifgy")
 
 [node name="Mask" type="Sprite2D" parent="Enem" unique_id=1281273512]
 position = Vector2(0, -24.489796)
-scale = Vector2(0.5761658, 0.5761658)
-texture = ExtResource("3_epg4t")
+scale = Vector2(0.415, 0.625)
+texture = ExtResource("3_qi2p4")
+offset = Vector2(33.22, 2.36)
 
 [node name="Maskout" type="AnimationPlayer" parent="Enem/Mask" unique_id=559220848]
 libraries/ = SubResource("AnimationLibrary_epg4t")

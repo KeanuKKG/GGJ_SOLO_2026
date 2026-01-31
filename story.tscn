@@ -1,14 +1,13 @@
-[gd_scene format=3 uid="uid://bumusbyms04oo"]
+[gd_scene format=3 uid="uid://c4jvquv340qe4"]
 
-[ext_resource type="Script" uid="uid://cai0be1f6s4je" path="res://starter.gd" id="1_il8kd"]
-[ext_resource type="Texture2D" uid="uid://c45fr5s3ygiuy" path="res://Lib/Texture/SC/1.jpg" id="1_urjrp"]
-[ext_resource type="Texture2D" uid="uid://rrtdpcrbqfpp" path="res://Lib/Texture/Ui/PgBM.png" id="2_n5bel"]
-[ext_resource type="FontFile" uid="uid://bvr42c254ypoy" path="res://Lib/fonts/Almond Milky.otf" id="3_o7i1f"]
-[ext_resource type="Texture2D" uid="uid://c5foo67fb6nrk" path="res://Lib/Texture/PBG.png" id="4_n5bel"]
-[ext_resource type="AudioStream" uid="uid://cgf3ckvlt2nvp" path="res://Lib/sound/Tanpa judul.mp3" id="5_o7i1f"]
+[ext_resource type="Texture2D" uid="uid://dismjdaa6cosd" path="res://Lib/Texture/SC/6.jpg" id="1_4ukgh"]
+[ext_resource type="Texture2D" uid="uid://rrtdpcrbqfpp" path="res://Lib/Texture/Ui/PgBM.png" id="2_s70ul"]
+[ext_resource type="FontFile" uid="uid://bvr42c254ypoy" path="res://Lib/fonts/Almond Milky.otf" id="3_s7v7q"]
+[ext_resource type="Texture2D" uid="uid://c5foo67fb6nrk" path="res://Lib/Texture/PBG.png" id="4_6he7n"]
+[ext_resource type="AudioStream" uid="uid://cgf3ckvlt2nvp" path="res://Lib/sound/Tanpa judul.mp3" id="5_mcr3i"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_il8kd"]
-texture = ExtResource("2_n5bel")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfuvt"]
+texture = ExtResource("2_s70ul")
 texture_margin_left = 38.69111
 texture_margin_top = 42.63963
 texture_margin_right = 48.0
@@ -19,7 +18,7 @@ modulate_color = Color(1, 1, 0.1882353, 1)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_il8kd"]
 load_path = "res://.godot/imported/PgBM.png-8b34a2a0062e8837046b9f1bda99e964.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fvat"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onxn5"]
 texture = SubResource("CompressedTexture2D_il8kd")
 texture_margin_left = 38.69111
 texture_margin_top = 42.63963
@@ -31,7 +30,7 @@ modulate_color = Color(1, 0.73333335, 0.1882353, 1)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wfxfl"]
 load_path = "res://.godot/imported/PgBM.png-8b34a2a0062e8837046b9f1bda99e964.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4dy5"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xt3l3"]
 texture = SubResource("CompressedTexture2D_wfxfl")
 texture_margin_left = 38.69111
 texture_margin_top = 42.63963
@@ -40,10 +39,10 @@ texture_margin_bottom = 38.485184
 region_rect = Rect2(12, 12, 232, 232)
 modulate_color = Color(0.6039216, 1, 0.1882353, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s36kc"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rvij"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_y168n"]
-font = ExtResource("3_o7i1f")
+[sub_resource type="LabelSettings" id="LabelSettings_obepi"]
+font = ExtResource("3_s7v7q")
 font_size = 45
 font_color = Color(0.70980394, 0.5647059, 0.13333334, 1)
 outline_size = 11
@@ -146,23 +145,64 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1.4186182e-15, 1.4186182e-15, 1.4186182e-15, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfxfl"]
+[sub_resource type="Animation" id="Animation_4ukgh"]
+resource_name = "X_CX"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.49999994, 0.99999994, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1.4186182e-15, 1.4186182e-15, 1.4186182e-15, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../DK/CJ:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.49999994, 0.99999994, 1.0999999, 1.3),
+"transitions": PackedFloat32Array(0.5, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 224), Vector2(0, -212), Vector2(0, -212), Vector2(254, -199)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../DK/CJ:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.49999994, 1.0999999, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvs4j"]
 _data = {
 &"RESET": SubResource("Animation_o7i1f"),
 &"X": SubResource("Animation_il8kd"),
-&"X_C": SubResource("Animation_wfxfl")
+&"X_C": SubResource("Animation_wfxfl"),
+&"X_CX": SubResource("Animation_4ukgh")
 }
 
-[node name="Starter" type="Control" unique_id=1149147376]
+[node name="Story" type="Control" unique_id=1450445613]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_il8kd")
 
-[node name="BG" type="TextureRect" parent="." unique_id=773716783]
+[node name="BG" type="TextureRect" parent="." unique_id=704902237]
 self_modulate = Color(0.23031491, 0.23031494, 0.23031494, 1)
 show_behind_parent = true
 layout_mode = 1
@@ -171,22 +211,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_urjrp")
+texture = ExtResource("1_4ukgh")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="TTR" type="TextureRect" parent="." unique_id=526584344]
+[node name="TTR" type="TextureRect" parent="." unique_id=1050858711]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_urjrp")
+texture = ExtResource("1_4ukgh")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CDS" type="Button" parent="." unique_id=965227592]
+[node name="CDS" type="Button" parent="." unique_id=1368529551]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -198,12 +238,12 @@ offset_bottom = 80.5
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/normal = SubResource("StyleBoxTexture_il8kd")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6fvat")
-theme_override_styles/hover = SubResource("StyleBoxTexture_f4dy5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_s36kc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xfuvt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_onxn5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xt3l3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0rvij")
 
-[node name="Label" type="Label" parent="CDS" unique_id=732583384]
+[node name="Label" type="Label" parent="CDS" unique_id=1233222774]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -215,11 +255,11 @@ offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Next.."
-label_settings = SubResource("LabelSettings_y168n")
+label_settings = SubResource("LabelSettings_obepi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DPS" type="ColorRect" parent="." unique_id=1962093066]
+[node name="DPS" type="ColorRect" parent="." unique_id=979422164]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -229,11 +269,11 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AVA" type="AnimationPlayer" parent="DPS" unique_id=677274472]
-libraries/ = SubResource("AnimationLibrary_wfxfl")
+[node name="AVA" type="AnimationPlayer" parent="DPS" unique_id=670573866]
+libraries/ = SubResource("AnimationLibrary_rvs4j")
 autoplay = &"X"
 
-[node name="DK" type="Control" parent="." unique_id=318447513]
+[node name="DK" type="Control" parent="." unique_id=1133767988]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -243,13 +283,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="CJ" type="Sprite2D" parent="DK" unique_id=986988284]
+[node name="CJ" type="Sprite2D" parent="DK" unique_id=231815403]
 position = Vector2(0, 224)
-texture = ExtResource("4_n5bel")
+texture = ExtResource("4_6he7n")
 
-[node name="AUDIO" type="AudioStreamPlayer" parent="." unique_id=511384477]
-stream = ExtResource("5_o7i1f")
+[node name="AUDIO" type="AudioStreamPlayer" parent="." unique_id=35872489]
+stream = ExtResource("5_mcr3i")
 autoplay = true
-
-[connection signal="pressed" from="CDS" to="." method="_on_cds_pressed"]
-[connection signal="animation_finished" from="DPS/AVA" to="." method="_on_ava_animation_finished"]

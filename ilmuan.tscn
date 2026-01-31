@@ -6,10 +6,13 @@
 [ext_resource type="Script" uid="uid://dq2p60hl23hy" path="res://TopLoww.gd" id="2_sojyo"]
 [ext_resource type="Texture2D" uid="uid://bipwoe41ogvg4" path="res://Lib/Texture/hando.png" id="3_ha34j"]
 [ext_resource type="Texture2D" uid="uid://bb5b1edp21hxx" path="res://Lib/Texture/Bottle.png" id="5_hfpj2"]
+[ext_resource type="Texture2D" uid="uid://lm2wiii48cpk" path="res://Lib/Texture/FlameThrower.png" id="6_sgyqi"]
+[ext_resource type="Shader" uid="uid://yjbipqp0rsmt" path="res://Ashader.gdshader" id="8_bcv8y"]
+[ext_resource type="Texture2D" uid="uid://rrtdpcrbqfpp" path="res://Lib/Texture/Ui/PgBM.png" id="9_s15r2"]
+[ext_resource type="FontFile" uid="uid://bvr42c254ypoy" path="res://Lib/fonts/Almond Milky.otf" id="10_tke3q"]
 
 [sub_resource type="Gradient" id="Gradient_5lr32"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.6987952)
+offsets = PackedFloat32Array(0.5, 0.6987952)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ha34j"]
@@ -91,7 +94,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.5, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.09773843811168285, -0.0942477796076934]
+"values": [0.09773843811168284, -0.0942477796076934]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -112,6 +115,212 @@ _data = {
 &"RESET": SubResource("Animation_5lr32"),
 &"Walk": SubResource("Animation_ha34j")
 }
+
+[sub_resource type="Animation" id="Animation_mokl2"]
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandOL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40.321968, 48.304478)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandOR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-48.266506, 46.03613)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandOL:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0925761]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandOR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.2078242]
+}
+
+[sub_resource type="Animation" id="Animation_bcv8y"]
+resource_name = "X1"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandOL:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(40.321968, 48.304478), Vector2(40.322, 39.806), Vector2(71.42857, 14.285715)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandOR:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-48.266506, 46.03613), Vector2(-48.266506, 38.207584), Vector2(-48.266506, 43.92187)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandOL:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0925761, -0.1581144]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandOR:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.2078242, 2.2078242]
+}
+
+[sub_resource type="Animation" id="Animation_dl610"]
+resource_name = "X2"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandOL:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40.321968, 48.304478), Vector2(82.85715, 14.285717)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandOR:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-48.266506, 46.03613), Vector2(114.28572, 14.285707)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandOL:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0925761, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandOR:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.2078242, -0.41398168]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s15r2"]
+_data = {
+&"RESET": SubResource("Animation_mokl2"),
+&"X1": SubResource("Animation_bcv8y"),
+&"X2": SubResource("Animation_dl610")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dl610"]
+shader = ExtResource("8_bcv8y")
+shader_parameter/blur_radius = 0.070000003325
+shader_parameter/blur_amount = 5.0
+shader_parameter/blur_inner = 0.2950000140125
+shader_parameter/blur_outer = 0.530000025175
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1ynn"]
+texture = ExtResource("9_s15r2")
+texture_margin_left = 38.69111
+texture_margin_top = 42.63963
+texture_margin_right = 48.0
+texture_margin_bottom = 38.485184
+region_rect = Rect2(12, 12, 232, 232)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pu1um"]
+texture = ExtResource("9_s15r2")
+texture_margin_left = 38.69111
+texture_margin_top = 42.63963
+texture_margin_right = 48.0
+texture_margin_bottom = 38.485184
+region_rect = Rect2(12, 12, 232, 232)
+modulate_color = Color(0, 1.2742168, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e4gej"]
+font = ExtResource("10_tke3q")
+font_size = 26
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s15r2"]
+load_path = "res://.godot/imported/PgBM.png-8b34a2a0062e8837046b9f1bda99e964.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tke3q"]
+texture = SubResource("CompressedTexture2D_s15r2")
+texture_margin_left = 38.69111
+texture_margin_top = 42.63963
+texture_margin_right = 48.0
+texture_margin_bottom = 38.485184
+region_rect = Rect2(12, 12, 232, 232)
+modulate_color = Color(1.6852883, 1.6852883, 0, 1)
 
 [node name="Ilmuan" type="CharacterBody2D" unique_id=11230797]
 script = ExtResource("1_5lr32")
@@ -147,7 +356,7 @@ Nodes = NodePath("../../AWA/Hands/HandOL")
 
 [node name="GasTrhower" type="Node2D" parent="Senjatas" unique_id=929839413 node_paths=PackedStringArray("Nodes")]
 script = ExtResource("2_sojyo")
-Nodes = NodePath("../../AWA/Hands/HandOL")
+Nodes = NodePath("../../AWA/Hands/HandOL/OVR/Mark")
 
 [node name="AWA" type="Sprite2D" parent="." unique_id=1497121813]
 z_index = 1
@@ -167,12 +376,20 @@ show_behind_parent = true
 [node name="HandOL" type="Sprite2D" parent="AWA/Hands" unique_id=910796602]
 show_behind_parent = true
 position = Vector2(40.321968, 48.304478)
-rotation = 1.0471976
+rotation = 1.0925761
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("3_ha34j")
 offset = Vector2(-2.54, -6.85)
 
 [node name="OVR" type="Sprite2D" parent="AWA/Hands/HandOL" unique_id=1152329991]
+scale = Vector2(0.60832965, 0.60832965)
+texture = ExtResource("6_sgyqi")
+
+[node name="Mark" type="Marker2D" parent="AWA/Hands/HandOL/OVR" unique_id=614716398]
+position = Vector2(103.39766, -37.3113)
+
+[node name="OVRX" type="Sprite2D" parent="AWA/Hands/HandOL" unique_id=1038624151]
+visible = false
 scale = Vector2(0.60832965, 0.60832965)
 texture = ExtResource("5_hfpj2")
 
@@ -182,5 +399,122 @@ position = Vector2(-48.266506, 46.03613)
 rotation = 2.2078242
 texture = ExtResource("3_ha34j")
 offset = Vector2(-2.54, -6.85)
+
+[node name="AnimH" type="AnimationPlayer" parent="AWA/Hands" unique_id=1813189191]
+libraries/ = SubResource("AnimationLibrary_s15r2")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1716712047]
+
+[node name="Shaders" type="Control" parent="UI" unique_id=2024261210]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Effect" type="ColorRect" parent="UI/Shaders" unique_id=589653224]
+material = SubResource("ShaderMaterial_dl610")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ID" type="Control" parent="UI" unique_id=1975529927]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HEALTH" type="ProgressBar" parent="UI/ID" unique_id=434148561]
+custom_minimum_size = Vector2(450, 25)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 370.0
+offset_bottom = 1.1248169
+grow_vertical = 0
+scale = Vector2(0.5911137, 0.5911137)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxTexture_w1ynn")
+theme_override_styles/fill = SubResource("StyleBoxTexture_pu1um")
+value = 100.0
+show_percentage = false
+
+[node name="NAm" type="Label" parent="UI/ID/HEALTH" unique_id=1186209695]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 0.56520236
+offset_top = -117.641335
+offset_right = 91.5652
+offset_bottom = -85.641335
+grow_vertical = 0
+text = "Health"
+label_settings = SubResource("LabelSettings_e4gej")
+vertical_alignment = 1
+
+[node name="NAmD" type="Label" parent="UI/ID/HEALTH" unique_id=1106107433]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -16.0
+offset_right = 45.5
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+label_settings = SubResource("LabelSettings_e4gej")
+vertical_alignment = 1
+
+[node name="AMMO" type="ProgressBar" parent="UI/ID" unique_id=1970497356]
+custom_minimum_size = Vector2(450, 25)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -368.99994
+offset_top = -81.12482
+offset_right = 81.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5911137, 0.5911137)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxTexture_w1ynn")
+theme_override_styles/fill = SubResource("StyleBoxTexture_tke3q")
+value = 67.34
+fill_mode = 1
+show_percentage = false
+
+[node name="NAm" type="Label" parent="UI/ID/AMMO" unique_id=1704440873]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -94.383545
+offset_top = -32.92186
+offset_right = -3.383545
+offset_bottom = -0.92185974
+grow_horizontal = 0
+text = "Ammo"
+label_settings = SubResource("LabelSettings_e4gej")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="hitted_virus" from="." to="." method="_on_hitted_virus"]

@@ -6,16 +6,22 @@ class_name EnemyBossBody2D
 @onready var bosses: ProgressBar = $Healtbar/Type/Bosses
 @onready var n_am_d: Label = $Healtbar/Type/Bosses/NAmD
 @onready var hit: AnimationPlayer = $Enem/HIT
+@onready var laser: Line2D = $Laser
+@onready var time: Timer = $TIME
+@onready var parent :Node2D = get_parent()
 
 const RAD :float = 2.5
-const ALLTEXT := [preload("uid://b2eqfcjbduyr1"), preload("uid://cjb2b8mbf8gpg"), preload("uid://bcj4de5o4kdg2"), preload("uid://bw8ppfekvhg7e")]
+const ALLTEXT := [preload("uid://bf7dst3php3ox"), preload("uid://dt2eabgdq7d4u"), preload("uid://bky2wopdib1rq"), preload("uid://c6pee4jkwq88k")]
 var player_node :IlmuanBody2D
 var death := false
+var change := false
+var target_enemy :EnemyBody2D
 var health_index := 4.0:
 	set(value):
 		if value < health_index:
 			hit.seek(0.0, true)
 			hit.play("HITTED")
+			Globals.add_text_indicator(global_position,str(((health_index - value)/4.0)*100),Color.RED)
 		if value <= 0.0 and health_index > 0 and !death:
 			death = true
 			maskout.play("Out")
@@ -29,6 +35,15 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_handle_movement(delta)
+
+func _handle_lazer(delta: float) -> void:
+	for a in parent.get_children():
+		if a is EnemyBody2D:
+			if !change and randf() <= 0.5:
+				change = true
+				target_enemy = a
+			if change:
+				break
 
 func _handle_movement(delta:float) -> void:
 	mask.texture = ALLTEXT[min(abs(int(health_index) - 4), 3)]

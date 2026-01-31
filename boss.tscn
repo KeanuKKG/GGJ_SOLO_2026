@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bw0ibm0wecwtx" path="res://Lib/Texture/Prototexture.png" id="1_6xxrv"]
 [ext_resource type="Script" uid="uid://gfnyhqr12vmi" path="res://boss.gd" id="1_skx2t"]
-[ext_resource type="Texture2D" uid="uid://b2eqfcjbduyr1" path="res://Lib/Texture/topeng K1.png" id="2_skx2t"]
+[ext_resource type="Texture2D" uid="uid://bf7dst3php3ox" path="res://Lib/Texture/mask no bg/mask full ijo.png" id="3_we8h1"]
 [ext_resource type="Texture2D" uid="uid://rrtdpcrbqfpp" path="res://Lib/Texture/Ui/PgBM.png" id="4_we8h1"]
 [ext_resource type="Texture2D" uid="uid://c0wo2likxo8bv" path="res://Lib/Texture/Ui/PgB.png" id="5_kvofc"]
 [ext_resource type="FontFile" uid="uid://bvr42c254ypoy" path="res://Lib/fonts/Almond Milky.otf" id="6_ef0k6"]
@@ -169,9 +169,9 @@ texture = ExtResource("1_6xxrv")
 
 [node name="Mask" type="Sprite2D" parent="Enem" unique_id=963235301]
 position = Vector2(0, -24.489796)
-scale = Vector2(0.576, 0.851)
-texture = ExtResource("2_skx2t")
-offset = Vector2(0, 18.135)
+scale = Vector2(0.376, 0.556)
+texture = ExtResource("3_we8h1")
+offset = Vector2(34.89, -2.875)
 
 [node name="Maskout" type="AnimationPlayer" parent="Enem/Mask" unique_id=1471411871]
 libraries/ = SubResource("AnimationLibrary_o1i15")
@@ -190,6 +190,7 @@ shape = SubResource("CapsuleShape2D_skx2t")
 debug_color = Color(0.9863375, 0, 0.32941782, 0.41960785)
 
 [node name="Healtbar" type="CanvasLayer" parent="." unique_id=1712698939]
+layer = 2
 
 [node name="Type" type="Control" parent="Healtbar" unique_id=1998460309]
 layout_mode = 3

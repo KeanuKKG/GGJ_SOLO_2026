@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://ciexoofdix2en"]
+
+[ext_resource type="Texture2D" uid="uid://3tl7y4nxljhu" path="res://Lib/Texture/Ui/Screenshot 2026-01-31 153703.png" id="1_4rbkc"]
+[ext_resource type="Shader" uid="uid://yjbipqp0rsmt" path="res://Ashader.gdshader" id="2_pt1ru"]
+[ext_resource type="FontFile" uid="uid://be42ooq18828w" path="res://Lib/fonts/LeagueSpartan-Bold.ttf" id="3_0noqu"]
+[ext_resource type="Texture2D" uid="uid://d1dpo43rex4cm" path="res://Lib/Texture/mask no bg/mask retak item.png" id="4_0noqu"]
+[ext_resource type="Script" uid="uid://c22tq3a6lk558" path="res://arelace.gd" id="4_pt1ru"]
+[ext_resource type="FontFile" uid="uid://bkemjtagvdpcx" path="res://Lib/fonts/LeagueSpartan-VariableFont_wght.ttf" id="4_pxv5b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jllm8"]
+shader = ExtResource("2_pt1ru")
+shader_parameter/blur_radius = 0.46000002185
+shader_parameter/blur_amount = 3.2050001522375
+shader_parameter/blur_inner = 0.58000002755
+shader_parameter/blur_outer = 0.6800000323
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ofep"]
+line_spacing = -12.36
+font = ExtResource("3_0noqu")
+font_size = 66
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihefr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wjb41"]
+font = ExtResource("4_pxv5b")
+font_size = 45
+outline_size = 11
+outline_color = Color(0.18039216, 0.18039216, 0.03529412, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2m66s"]
+font = ExtResource("4_pxv5b")
+font_size = 20
+font_color = Color(1, 1, 0.5411765, 1)
+outline_size = 7
+outline_color = Color(0.18039216, 0.18039216, 0.03529412, 1)
+
+[node name="Interface" type="Control" unique_id=294924942]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AAB" type="TextureRect" parent="." unique_id=1936733641]
+self_modulate = Color(1, 1, 0.60784316, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4rbkc")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Effect" type="ColorRect" parent="AAB" unique_id=572662457]
+material = SubResource("ShaderMaterial_jllm8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AS" type="Label" parent="." unique_id=958720169]
+layout_mode = 1
+offset_left = 110.0
+offset_top = 21.0
+offset_right = 586.0
+offset_bottom = 148.0
+text = "MASK OF PANDEMIC"
+label_settings = SubResource("LabelSettings_5ofep")
+autowrap_mode = 3
+
+[node name="AXD" type="Sprite2D" parent="AS" unique_id=1993808503]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-40.99994, 48.999996)
+scale = Vector2(0.20972939, 0.20972939)
+texture = ExtResource("4_0noqu")
+
+[node name="AC" type="VBoxContainer" parent="." unique_id=556020629]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -186.0
+offset_right = 516.0
+offset_bottom = 297.0
+grow_vertical = 2
+script = ExtResource("4_pt1ru")
+
+[node name="CDSAT" type="Button" parent="AC" unique_id=2128626336]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefr")
+
+[node name="Label" type="Label" parent="AC/CDSAT" unique_id=474874411]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 6.0
+offset_right = 2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_wjb41")
+vertical_alignment = 1
+
+[node name="La" type="Label" parent="AC/CDSAT" unique_id=821188335]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -24.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Prototype Flat World"
+label_settings = SubResource("LabelSettings_2m66s")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CDSA" type="Button" parent="AC" unique_id=48816833]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefr")
+
+[node name="Label" type="Label" parent="AC/CDSA" unique_id=1064195389]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 6.0
+offset_right = 2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_wjb41")
+vertical_alignment = 1
+
+[node name="La" type="Label" parent="AC/CDSA" unique_id=1434295256]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -24.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Arch | Spanish flu"
+label_settings = SubResource("LabelSettings_2m66s")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CDSB" type="Button" parent="AC" unique_id=1597895570]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefr")
+
+[node name="Label" type="Label" parent="AC/CDSB" unique_id=1818207768]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 6.0
+offset_right = 2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_wjb41")
+vertical_alignment = 1
+
+[node name="La" type="Label" parent="AC/CDSB" unique_id=744512518]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -24.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Arch | Covid-19"
+label_settings = SubResource("LabelSettings_2m66s")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CDSX" type="Button" parent="AC" unique_id=369269547]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefr")
+
+[node name="Label" type="Label" parent="AC/CDSX" unique_id=164819557]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 6.0
+offset_right = 2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Coming Soon.."
+label_settings = SubResource("LabelSettings_wjb41")
+vertical_alignment = 1
+
+[node name="La" type="Label" parent="AC/CDSX" unique_id=854953824]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -24.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Arch | Black Death"
+label_settings = SubResource("LabelSettings_2m66s")
+horizontal_alignment = 2
+vertical_alignment = 1

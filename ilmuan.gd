@@ -5,7 +5,12 @@ class_name IlmuanBody2D
 @onready var ap: AnimationPlayer = $AWA/AP
 @onready var cam: Camera2D = $CAM
 @onready var hands: Node2D = $AWA/Hands
+@onready var hand_ol: Sprite2D = $AWA/Hands/HandOL
 @onready var world: Node2D = $"../.."
+@onready var gas_trhower: Sync2D = $Senjatas/GasTrhower
+@onready var allsprite := [$AWA/Hands/HandOL/OVRX, $AWA/Hands/HandOL/OVR]
+@onready var anim_h: AnimationPlayer = $AWA/Hands/AnimH
+@onready var ammo: ProgressBar = $UI/ID/AMMO
 
 const SPEED := 225.0
 const SPRINT_SPEED := 1.25
@@ -14,6 +19,12 @@ const GAS := preload("res://asap.tscn")
 const GES := preload("res://gas.tscn") 
 var time :float = 0.0
 var direction_input :Vector2
+var index_gun := 0
+var played_indx := 0
+var ALAMO := [
+	100.0,
+	100.0
+]
 signal hitted_virus(type:String)
 
 func _physics_process(delta: float) -> void:
@@ -31,10 +42,10 @@ func gassing() -> void:
 
 func gassed() -> void:
 	var asapm := GES.instantiate()
-	asapm.start_poss = asap.global_position + Vector2(0, randf_range(-25, 25))
+	asapm.start_poss = gas_trhower.global_position + Vector2(0, randf_range(-25, 25))
 	asapm.scale = Vector2.ONE * randf_range(0.25,0.75)
-	asapm.rotation = (get_global_mouse_position() - global_position).normalized().angle() + randf_range(-PI/12, PI/12)
-	asap.add_child(asapm)
+	asapm.rotation = Vector2(-1 if awa.flip_h else 1, 0).angle() + randf_range(-PI/12, PI/12)
+	gas_trhower.add_child(asapm)
 
 func _handle_movement(delta:float) -> void:
 	direction_input = Input.get_vector("KIRI", "KANAN", "ATAS", "BAWAH")
@@ -61,8 +72,34 @@ func _handle_animation(delta:float) -> void:
 func _handle_weapon(delta:float) -> void:
 	if Input.is_action_pressed("GASS"):
 		gassing()
+		index_gun = 1
 	elif Input.is_action_pressed("TRHO"):
-		gassed()
+		if (sign(get_local_mouse_position().x) == (-1 if awa.flip_h else 1)):
+			gassed()
+		index_gun = 2
+	else:
+		index_gun = 0
+	if index_gun != 0:
+		ammo.show()
+		ammo.value = ALAMO[index_gun-1]
+		ALAMO[index_gun-1] -= 0.1
+	else:
+		ammo.hide()
+	for a in 3:
+		if a != 0:
+			allsprite[a-1].visible = a == index_gun
+			if played_indx != index_gun and a == index_gun:
+				anim_h.play("X"+str(a))
+				played_indx = index_gun
+			if a != index_gun:
+				allsprite[a-1].hide()
+		else:
+			if index_gun == 0:
+				played_indx = 0
+			for bx in hand_ol.get_children():
+				bx.hide()
+	if index_gun == 0:
+		anim_h.play("RESET")
 
 func move_toward_vector2d(vectA:Vector2, vectB:Vector2, Move:float) -> Vector2:
 	return Vector2(move_toward(vectA.x, vectB.x, Move), move_toward(vectA.y, vectB.y, Move))

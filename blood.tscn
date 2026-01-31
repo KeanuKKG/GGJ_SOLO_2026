@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bkcqwj84g5u4i"]
+
+[ext_resource type="Script" uid="uid://bn3ypc4m70b1n" path="res://bloodgpu.gd" id="1_44s4y"]
+
+[sub_resource type="Gradient" id="Gradient_qi2p4"]
+offsets = PackedFloat32Array(0.3192771, 0.37349397)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iifgy"]
+gradient = SubResource("Gradient_qi2p4")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_epg4t"]
+colors = PackedColorArray(1, 1, 1, 1, 0.52906674, 0.5290667, 0.5290667, 0.84705883)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3yqyl"]
+gradient = SubResource("Gradient_epg4t")
+
+[sub_resource type="Gradient" id="Gradient_wujgv"]
+offsets = PackedFloat32Array(0.71311474, 0.9918033)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hb8ge"]
+gradient = SubResource("Gradient_wujgv")
+
+[sub_resource type="Curve" id="Curve_e1ltt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dxifv"]
+curve = SubResource("Curve_e1ltt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pwjut"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 75.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+damping_min = 300.0
+damping_max = 300.0
+scale_min = 0.5
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_dxifv")
+color_ramp = SubResource("GradientTexture1D_hb8ge")
+color_initial_ramp = SubResource("GradientTexture1D_3yqyl")
+
+[node name="Gpu" type="GPUParticles2D" unique_id=145736494]
+top_level = true
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_iifgy")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pwjut")
+script = ExtResource("1_44s4y")

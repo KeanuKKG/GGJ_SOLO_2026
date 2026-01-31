@@ -4,13 +4,14 @@ class_name EnemyBody2D
 @onready var maskout: AnimationPlayer = $Enem/Mask/Maskout
 @onready var colsi: CollisionShape2D = $Colsi
 @onready var hit: AnimationPlayer = $Enem/HIT
+@onready var collision_shape_2d: CollisionShape2D = $Hurbox/CollisionShape2D
 
 var direction_input :Vector2
 const RAD :float = 250.5
 const SPEED := 150.0
 const SPRINT_SPEED := 1.25
 const FRICTION := 150.0
-const ALLTEXT := [preload("uid://b2eqfcjbduyr1"), preload("uid://cjb2b8mbf8gpg"), preload("uid://bcj4de5o4kdg2"), preload("uid://bw8ppfekvhg7e")]
+const ALLTEXT := [preload("uid://bf7dst3php3ox"), preload("uid://dt2eabgdq7d4u"), preload("uid://bky2wopdib1rq"), preload("uid://c6pee4jkwq88k")]
 var player_node :IlmuanBody2D
 var death := false
 var health_index := 4.0:
@@ -18,6 +19,8 @@ var health_index := 4.0:
 		if value < health_index:
 			hit.seek(0.0, true)
 			hit.play("HITTED")
+			noda_dar()
+			Globals.add_text_indicator(global_position,str(floor(((health_index - value)/4.0)*1000)), Color.REBECCA_PURPLE)
 		if value <= 0.0 and health_index > 0 and !death:
 			death = true
 			maskout.play("Out")
@@ -29,6 +32,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_handle_movement(delta)
 	move_and_slide()
+
+func noda_dar() -> void:
+	var node := preload("res://blood.tscn").instantiate()
+	node.global_position = global_position
+	add_child(node)
 
 func _handle_movement(delta:float) -> void:
 	mask.texture = ALLTEXT[min(abs(int(health_index) - 4), 3)]

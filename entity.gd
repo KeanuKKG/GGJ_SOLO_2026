@@ -11,7 +11,7 @@ func enemy_spwn(vale:int) -> void:
 		add_child(enemyse)
 
 func _ready() -> void:
-	enemy_spwn(2)
+	enemy_spwn(15)
 
 func boss_spwn() -> void:
 	var boss = preload("res://boss.tscn").instantiate()
