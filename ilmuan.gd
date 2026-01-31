@@ -9,6 +9,7 @@ class_name IlmuanBody2D
 @onready var world: Node2D = $"../.."
 @onready var gas_trhower: Sync2D = $Senjatas/GasTrhower
 @onready var allsprite := [$AWA/Hands/HandOL/OVRX, $AWA/Hands/HandOL/OVR]
+@onready var sc: TextureRect = $UI/ID/Weapon/SC
 @onready var anim_h: AnimationPlayer = $AWA/Hands/AnimH
 @onready var ammo: ProgressBar = $UI/ID/AMMO
 
@@ -17,6 +18,8 @@ const SPRINT_SPEED := 1.25
 const FRICTION := 150.0
 const GAS := preload("res://asap.tscn")
 const GES := preload("res://gas.tscn") 
+const prechache := [preload("uid://bvpmbx737my61"), preload("uid://dbrvludloh3j1")]
+const pretexture := [preload("uid://bb5b1edp21hxx"), preload("uid://lm2wiii48cpk")]
 var time :float = 0.0
 var direction_input :Vector2
 var index_gun := 0
@@ -48,6 +51,7 @@ func gassed() -> void:
 	gas_trhower.add_child(asapm)
 
 func _handle_movement(delta:float) -> void:
+	sc.texture = null if index_gun == 0 else (pretexture[index_gun-1])
 	direction_input = Input.get_vector("KIRI", "KANAN", "ATAS", "BAWAH")
 	cam.zoom = cam.zoom.lerp(Vector2.ONE / max((velocity.length() / SPEED), 0.422), delta* 8)
 	if direction_input.x:
@@ -100,6 +104,7 @@ func _handle_weapon(delta:float) -> void:
 				bx.hide()
 	if index_gun == 0:
 		anim_h.play("RESET")
+	awa.texture = prechache[1] if index_gun != 0 else prechache[0]
 
 func move_toward_vector2d(vectA:Vector2, vectB:Vector2, Move:float) -> Vector2:
 	return Vector2(move_toward(vectA.x, vectB.x, Move), move_toward(vectA.y, vectB.y, Move))

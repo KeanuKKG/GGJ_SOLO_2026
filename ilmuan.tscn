@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://set6hxm5em3u"]
 
 [ext_resource type="Script" uid="uid://cvkb8o5bu50ra" path="res://ilmuan.gd" id="1_5lr32"]
-[ext_resource type="Texture2D" uid="uid://dbrvludloh3j1" path="res://Lib/Texture/Ilmuan X.png" id="2_5lr32"]
 [ext_resource type="Script" uid="uid://c8jmat7kpvara" path="res://cam.gd" id="2_sgyqi"]
 [ext_resource type="Script" uid="uid://dq2p60hl23hy" path="res://TopLoww.gd" id="2_sojyo"]
 [ext_resource type="Texture2D" uid="uid://bipwoe41ogvg4" path="res://Lib/Texture/hando.png" id="3_ha34j"]
+[ext_resource type="Texture2D" uid="uid://bvpmbx737my61" path="res://Lib/Texture/Ilmuan X T.png" id="4_s15r2"]
 [ext_resource type="Texture2D" uid="uid://bb5b1edp21hxx" path="res://Lib/Texture/Bottle.png" id="5_hfpj2"]
 [ext_resource type="Texture2D" uid="uid://lm2wiii48cpk" path="res://Lib/Texture/FlameThrower.png" id="6_sgyqi"]
 [ext_resource type="Shader" uid="uid://yjbipqp0rsmt" path="res://Ashader.gdshader" id="8_bcv8y"]
@@ -322,6 +322,17 @@ texture_margin_bottom = 38.485184
 region_rect = Rect2(12, 12, 232, 232)
 modulate_color = Color(1.6852883, 1.6852883, 0, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tke3q"]
+load_path = "res://.godot/imported/PgBM.png-8b34a2a0062e8837046b9f1bda99e964.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4gej"]
+texture = SubResource("CompressedTexture2D_tke3q")
+texture_margin_left = 38.69111
+texture_margin_top = 42.63963
+texture_margin_right = 48.0
+texture_margin_bottom = 38.485184
+region_rect = Rect2(12, 12, 232, 232)
+
 [node name="Ilmuan" type="CharacterBody2D" unique_id=11230797]
 script = ExtResource("1_5lr32")
 
@@ -363,7 +374,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(1, -29)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_5lr32")
+texture = ExtResource("4_s15r2")
 
 [node name="AP" type="AnimationPlayer" parent="AWA" unique_id=429881718]
 libraries/ = SubResource("AnimationLibrary_sojyo")
@@ -516,5 +527,32 @@ text = "Ammo"
 label_settings = SubResource("LabelSettings_e4gej")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="Weapon" type="Control" parent="UI/ID" unique_id=1772537480]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="EX" type="Panel" parent="UI/ID/Weapon" unique_id=593902237]
+layout_mode = 0
+offset_left = -85.205315
+offset_top = -139.99998
+offset_right = 86.60383
+offset_bottom = 40.303253
+scale = Vector2(0.53502446, 0.53502446)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_e4gej")
+
+[node name="SC" type="TextureRect" parent="UI/ID/Weapon" unique_id=308917394]
+layout_mode = 0
+offset_left = -150.0
+offset_top = -157.0
+offset_right = 106.0
+offset_bottom = 99.0
 
 [connection signal="hitted_virus" from="." to="." method="_on_hitted_virus"]

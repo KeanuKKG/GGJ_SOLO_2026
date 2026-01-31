@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 	value = lerpf(value, 0.0, delta*speed)
 
 func shakes() -> void:
-	value = 6.25
+	value = 8.25
 
 func shakesex() -> void:
-	value = 3.125
+	value = 1.5625

@@ -14,6 +14,32 @@ shader_parameter/blur_amount = 3.2050001522375
 shader_parameter/blur_inner = 0.58000002755
 shader_parameter/blur_outer = 0.6800000323
 
+[sub_resource type="Gradient" id="Gradient_0noqu"]
+colors = PackedColorArray(1, 1, 1, 0.3882353, 0.6902774, 0.6249263, 0.3870908, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pxv5b"]
+gradient = SubResource("Gradient_0noqu")
+
+[sub_resource type="Curve" id="Curve_jllm8"]
+_data = [Vector2(0, 0.48314613), 0.0, 0.0, 0, 0, Vector2(0.1418919, 0.29213488), 0.0, 0.0, 0, 0, Vector2(0.25675678, 1), 0.0, 0.0, 0, 0, Vector2(0.5067568, 0.50561804), 0.0, 0.0, 0, 0, Vector2(0.7432433, 0.7865169), 0.0, 0.0, 0, 0, Vector2(0.9121622, 0.47191018), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ofep"]
+curve = SubResource("Curve_jllm8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ihefr"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 300, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+initial_velocity_min = 125.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_5ofep")
+color_initial_ramp = SubResource("GradientTexture1D_pxv5b")
+
 [sub_resource type="LabelSettings" id="LabelSettings_5ofep"]
 line_spacing = -12.36
 font = ExtResource("3_0noqu")
@@ -63,10 +89,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GPP" type="GPUParticles2D" parent="AAB" unique_id=1604645365]
+position = Vector2(0, 283)
+amount = 16
+lifetime = 2.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ihefr")
 
 [node name="AS" type="Label" parent="." unique_id=958720169]
 layout_mode = 1
@@ -86,13 +117,11 @@ texture = ExtResource("4_0noqu")
 
 [node name="AC" type="VBoxContainer" parent="." unique_id=556020629]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
+anchors_preset = -1
 offset_left = 23.0
-offset_top = -186.0
+offset_top = 138.0
 offset_right = 516.0
-offset_bottom = 297.0
+offset_bottom = 621.0
 grow_vertical = 2
 script = ExtResource("4_pt1ru")
 
@@ -103,15 +132,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefr")
 
 [node name="Label" type="Label" parent="AC/CDSAT" unique_id=474874411]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 23.0
+offset_left = 24.0
 offset_top = 6.0
-offset_right = 2.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 111.0
+offset_bottom = 48.0
 text = "Start"
 label_settings = SubResource("LabelSettings_wjb41")
 vertical_alignment = 1
@@ -133,27 +157,23 @@ label_settings = SubResource("LabelSettings_2m66s")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="CDSA" type="Button" parent="AC" unique_id=48816833]
+[node name="CDSAT2" type="Button" parent="AC" unique_id=644618691]
 custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefr")
+disabled = true
 
-[node name="Label" type="Label" parent="AC/CDSA" unique_id=1064195389]
+[node name="Label" type="Label" parent="AC/CDSAT2" unique_id=868294118]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 23.0
+offset_left = 24.0
 offset_top = 6.0
-offset_right = 2.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 111.0
+offset_bottom = 48.0
 text = "Start"
 label_settings = SubResource("LabelSettings_wjb41")
 vertical_alignment = 1
 
-[node name="La" type="Label" parent="AC/CDSA" unique_id=1434295256]
+[node name="La" type="Label" parent="AC/CDSAT2" unique_id=518589379]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -165,32 +185,28 @@ offset_top = -24.0
 offset_right = -5.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Arch | Spanish flu"
+text = "Act | Covid-19"
 label_settings = SubResource("LabelSettings_2m66s")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="CDSB" type="Button" parent="AC" unique_id=1597895570]
+[node name="CDSAT3" type="Button" parent="AC" unique_id=1294404986]
 custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefr")
+disabled = true
 
-[node name="Label" type="Label" parent="AC/CDSB" unique_id=1818207768]
+[node name="Label" type="Label" parent="AC/CDSAT3" unique_id=437795865]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 23.0
+offset_left = 24.0
 offset_top = 6.0
-offset_right = 2.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 111.0
+offset_bottom = 48.0
 text = "Start"
 label_settings = SubResource("LabelSettings_wjb41")
 vertical_alignment = 1
 
-[node name="La" type="Label" parent="AC/CDSB" unique_id=744512518]
+[node name="La" type="Label" parent="AC/CDSAT3" unique_id=98606100]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -202,32 +218,28 @@ offset_top = -24.0
 offset_right = -5.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Arch | Covid-19"
+text = "Act | Spanish Flu"
 label_settings = SubResource("LabelSettings_2m66s")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="CDSX" type="Button" parent="AC" unique_id=369269547]
+[node name="CDSAT4" type="Button" parent="AC" unique_id=1151452574]
 custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefr")
+disabled = true
 
-[node name="Label" type="Label" parent="AC/CDSX" unique_id=164819557]
+[node name="Label" type="Label" parent="AC/CDSAT4" unique_id=17135901]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 23.0
+offset_left = 24.0
 offset_top = 6.0
-offset_right = 2.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 111.0
+offset_bottom = 48.0
 text = "Coming Soon.."
 label_settings = SubResource("LabelSettings_wjb41")
 vertical_alignment = 1
 
-[node name="La" type="Label" parent="AC/CDSX" unique_id=854953824]
+[node name="La" type="Label" parent="AC/CDSAT4" unique_id=1219222014]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -239,7 +251,7 @@ offset_top = -24.0
 offset_right = -5.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Arch | Black Death"
+text = "Act | Black Death"
 label_settings = SubResource("LabelSettings_2m66s")
 horizontal_alignment = 2
 vertical_alignment = 1

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://set6hxm5em3u" path="res://ilmuan.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://b0kfsy62blxt1" path="res://Lib/Texture/NEW TTX.png" id="4_036b0"]
 [ext_resource type="Shader" uid="uid://56x85w8gkwp" path="res://DRE.gdshader" id="5_036b0"]
+[ext_resource type="Shader" uid="uid://caaad1t3ch043" path="res://Vecar.gdshader" id="6_dwbse"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_036b0"]
 texture = ExtResource("4_036b0")
@@ -34,6 +35,19 @@ shader_parameter/color = Vector4(1, 0.9, 0.65, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dwbse"]
+frequency = 0.009
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pkg7o"]
+noise = SubResource("FastNoiseLite_dwbse")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pkg7o"]
+shader = ExtResource("6_dwbse")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_pkg7o")
+shader_parameter/density = 0.602000028595
+shader_parameter/speed = Vector2(0.02, 0.01)
+
 [node name="World" type="Node2D" unique_id=647407865]
 script = ExtResource("1_036b0")
 
@@ -61,5 +75,19 @@ offset_left = -1051.0
 offset_top = -660.0
 offset_right = 938.68005
 offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AC2" type="ColorRect" parent="." unique_id=634817190]
+z_index = 2
+material = SubResource("ShaderMaterial_pkg7o")
+custom_minimum_size = Vector2(1000, 1000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1461.0
+offset_top = -869.0
+offset_right = 1486.56
+offset_bottom = 1045.0
 grow_horizontal = 2
 grow_vertical = 2

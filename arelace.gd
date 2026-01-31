@@ -17,4 +17,4 @@ func _process(delta: float) -> void:
 	axd.self_modulate.a = lerpf(axd.self_modulate.a, 0.0 if !asder.get_rect().has_point(get_global_mouse_position()) else 1.0, delta*8)
 	for a in get_children():
 		if a is Button:
-			a.custom_minimum_size.y = lerpf(a.custom_minimum_size.y, 55.0 if !a.is_hovered() else 85.0,delta*8)
+			a.custom_minimum_size.y = lerpf(a.custom_minimum_size.y, 55.0 if !a.is_hovered() else 95.0,delta*8)
