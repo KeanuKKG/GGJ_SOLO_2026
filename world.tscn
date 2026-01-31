@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://bx0bj7ua2rjqk"]
 
+[ext_resource type="Script" uid="uid://d3sy4bpb8rus2" path="res://world.gd" id="1_036b0"]
+[ext_resource type="Script" uid="uid://b4nicrwadoah7" path="res://entity.gd" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://set6hxm5em3u" path="res://ilmuan.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://dnqeib75fruih" path="res://Lib/Texture/tree/01.png" id="4_aqk2v"]
 
 [sub_resource type="Gradient" id="Gradient_f3sb7"]
-colors = PackedColorArray(0.45233482, 0.42880154, 1.92523e-07, 1, 0, 0.6862745, 0, 1)
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(5.715527e-07, 0.360331, 4.3317675e-07, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_fj7yv"]
+frequency = 0.009
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tlwt5"]
 width = 1280
 noise = SubResource("FastNoiseLite_fj7yv")
 color_ramp = SubResource("Gradient_f3sb7")
-seamless = true
 
 [node name="World" type="Node2D" unique_id=647407865]
+script = ExtResource("1_036b0")
 
 [node name="TERRAIN" type="Sprite2D" parent="." unique_id=1589216148]
 texture = SubResource("NoiseTexture2D_tlwt5")
@@ -35,4 +40,14 @@ show_behind_parent = true
 position = Vector2(0, 32)
 texture = SubResource("NoiseTexture2D_tlwt5")
 
-[node name="Ilmuan" parent="." unique_id=11230797 instance=ExtResource("1_f3sb7")]
+[node name="Entity" type="Node2D" parent="." unique_id=960551138]
+y_sort_enabled = true
+script = ExtResource("1_aqk2v")
+
+[node name="Ilmuan" parent="Entity" unique_id=11230797 groups=["ilmu"] instance=ExtResource("1_f3sb7")]
+y_sort_enabled = true
+
+[node name="Tree" type="Sprite2D" parent="." unique_id=581736982]
+texture_filter = 1
+position = Vector2(17, -709)
+texture = ExtResource("4_aqk2v")

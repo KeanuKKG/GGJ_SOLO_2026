@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://ce1cuvsjqenhu"]
+
+[ext_resource type="Texture2D" uid="uid://bw0ibm0wecwtx" path="res://Lib/Texture/Prototexture.png" id="1_6xxrv"]
+[ext_resource type="Script" uid="uid://gfnyhqr12vmi" path="res://boss.gd" id="1_skx2t"]
+[ext_resource type="Texture2D" uid="uid://b2eqfcjbduyr1" path="res://Lib/Texture/topeng K1.png" id="2_skx2t"]
+[ext_resource type="Texture2D" uid="uid://rrtdpcrbqfpp" path="res://Lib/Texture/Ui/PgBM.png" id="4_we8h1"]
+[ext_resource type="Texture2D" uid="uid://c0wo2likxo8bv" path="res://Lib/Texture/Ui/PgB.png" id="5_kvofc"]
+[ext_resource type="FontFile" uid="uid://bvr42c254ypoy" path="res://Lib/fonts/Almond Milky.otf" id="6_ef0k6"]
+
+[sub_resource type="Animation" id="Animation_qi2p4"]
+resource_name = "Out"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, -24.489796), Vector2(93.87755, -40.816322), Vector2(150, 85.714)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iifgy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -24.489796)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1i15"]
+_data = {
+&"Out": SubResource("Animation_qi2p4"),
+&"RESET": SubResource("Animation_iifgy")
+}
+
+[sub_resource type="Animation" id="Animation_epg4t"]
+resource_name = "HITTED"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0.27, 0.27), Vector2(0.245, 0.245)]
+}
+
+[sub_resource type="Animation" id="Animation_3yqyl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.245, 0.245)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_we8h1"]
+_data = {
+&"HITTED": SubResource("Animation_epg4t"),
+&"RESET": SubResource("Animation_3yqyl")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_skx2t"]
+radius = 18.0
+height = 54.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ry61v"]
+texture = ExtResource("4_we8h1")
+texture_margin_left = 38.69111
+texture_margin_top = 42.63963
+texture_margin_right = 48.0
+texture_margin_bottom = 38.485184
+region_rect = Rect2(12, 12, 232, 232)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kles1"]
+texture = ExtResource("5_kvofc")
+texture_margin_left = 38.69111
+texture_margin_top = 42.63963
+texture_margin_right = 48.0
+texture_margin_bottom = 38.485184
+region_rect = Rect2(12, 12, 232, 232)
+
+[sub_resource type="LabelSettings" id="LabelSettings_etj48"]
+font = ExtResource("6_ef0k6")
+font_size = 26
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Boss" type="Node2D" unique_id=1489676254]
+scale = Vector2(2.23, 2.23)
+script = ExtResource("1_skx2t")
+
+[node name="Enem" type="Sprite2D" parent="." unique_id=1685320537]
+self_modulate = Color(1, 0.7176471, 0.7607843, 1)
+z_index = 1
+position = Vector2(0, -29)
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("1_6xxrv")
+
+[node name="Mask" type="Sprite2D" parent="Enem" unique_id=963235301]
+position = Vector2(0, -24.489796)
+scale = Vector2(0.576, 0.851)
+texture = ExtResource("2_skx2t")
+offset = Vector2(0, 18.135)
+
+[node name="Maskout" type="AnimationPlayer" parent="Enem/Mask" unique_id=1471411871]
+libraries/ = SubResource("AnimationLibrary_o1i15")
+
+[node name="HIT" type="AnimationPlayer" parent="Enem" unique_id=1488328659]
+libraries/ = SubResource("AnimationLibrary_we8h1")
+speed_scale = 2.0
+
+[node name="Hurbox" type="StaticBody2D" parent="." unique_id=1443732455]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurbox" unique_id=1087271672]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_skx2t")
+debug_color = Color(0.9863375, 0, 0.32941782, 0.41960785)
+
+[node name="Healtbar" type="CanvasLayer" parent="." unique_id=1712698939]
+
+[node name="Type" type="Control" parent="Healtbar" unique_id=1998460309]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bosses" type="ProgressBar" parent="Healtbar/Type" unique_id=662796927]
+custom_minimum_size = Vector2(600, 25)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 81.12482
+grow_horizontal = 2
+scale = Vector2(0.5911137, 0.5911137)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxTexture_ry61v")
+theme_override_styles/fill = SubResource("StyleBoxTexture_kles1")
+value = 100.0
+show_percentage = false
+
+[node name="NAm" type="Label" parent="Healtbar/Type/Bosses" unique_id=1811240280]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 4.162651
+offset_right = 49.0
+offset_bottom = 36.16265
+grow_vertical = 0
+text = "BOSSES"
+label_settings = SubResource("LabelSettings_etj48")
+vertical_alignment = 1
+
+[node name="NAmD" type="Label" parent="Healtbar/Type/Bosses" unique_id=611300545]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -16.0
+offset_right = 45.5
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+label_settings = SubResource("LabelSettings_etj48")
+vertical_alignment = 1

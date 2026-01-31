@@ -6,8 +6,8 @@
 radius = 69.72087
 
 [sub_resource type="Gradient" id="Gradient_sw5nh"]
-offsets = PackedFloat32Array(0.4698795, 0.6566265)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.24698795, 0.3313253, 0.43975905, 0.55421686, 0.6686747)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.60431993, 1, 1, 1, 0.39705884, 1, 1, 1, 0.1450792, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4b67a"]
 gradient = SubResource("Gradient_sw5nh")
@@ -28,7 +28,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(3.125, 3.125)]
+"values": [Vector2(1, 1), Vector2(3.125, 3.125)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -40,7 +40,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 1.3, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1.0952381), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0.3137255), Color(1, 1, 1, 1), Color(1, 1, 1, 1.0952381), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -138,23 +138,26 @@ _data = {
 &"RESET": SubResource("Animation_sw5nh")
 }
 
-[sub_resource type="Gradient" id="Gradient_8cjpp"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+[sub_resource type="Gradient" id="Gradient_4b67a"]
+offsets = PackedFloat32Array(0, 0.30722892, 1)
+colors = PackedColorArray(1, 0.5764706, 1, 1, 0.44705883, 0.42745098, 0.8745098, 0.69411767, 0.24313726, 0, 0.5254902, 0)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_sw5nh"]
-frequency = 0.048
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_461qp"]
+frequency = 0.037
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4b67a"]
 width = 64
 height = 64
-noise = SubResource("FastNoiseLite_sw5nh")
-color_ramp = SubResource("Gradient_8cjpp")
+noise = SubResource("FastNoiseLite_461qp")
+color_ramp = SubResource("Gradient_4b67a")
 
 [node name="Asap" type="Node2D" unique_id=1513692118]
 top_level = true
 script = ExtResource("1_sw5nh")
 
 [node name="COL" type="Area2D" parent="." unique_id=1037412018]
+collision_layer = 0
+collision_mask = 2
 
 [node name="Coll1" type="CollisionShape2D" parent="COL" unique_id=1867951424]
 shape = SubResource("CircleShape2D_8cjpp")
@@ -162,6 +165,7 @@ debug_color = Color(0, 0.6509804, 0.15686275, 0)
 
 [node name="DREZ" type="Sprite2D" parent="." unique_id=2126519235]
 clip_children = 1
+z_index = 3
 scale = Vector2(2.5, 2.5)
 texture = SubResource("GradientTexture2D_4b67a")
 
@@ -171,3 +175,5 @@ autoplay = &"Asap"
 
 [node name="ASEP" type="Sprite2D" parent="DREZ" unique_id=8873147]
 texture = SubResource("NoiseTexture2D_4b67a")
+
+[connection signal="body_entered" from="COL" to="." method="_on_col_body_entered"]

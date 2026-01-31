@@ -1,30 +1,186 @@
 [gd_scene format=3 uid="uid://set6hxm5em3u"]
 
 [ext_resource type="Script" uid="uid://cvkb8o5bu50ra" path="res://ilmuan.gd" id="1_5lr32"]
-[ext_resource type="Texture2D" uid="uid://bw0ibm0wecwtx" path="res://Lib/Texture/Prototexture.png" id="2_ha34j"]
+[ext_resource type="Texture2D" uid="uid://dbrvludloh3j1" path="res://Lib/Texture/Ilmuan X.png" id="2_5lr32"]
+[ext_resource type="Script" uid="uid://c8jmat7kpvara" path="res://cam.gd" id="2_sgyqi"]
+[ext_resource type="Script" uid="uid://dq2p60hl23hy" path="res://TopLoww.gd" id="2_sojyo"]
+[ext_resource type="Texture2D" uid="uid://bipwoe41ogvg4" path="res://Lib/Texture/hando.png" id="3_ha34j"]
+[ext_resource type="Texture2D" uid="uid://bb5b1edp21hxx" path="res://Lib/Texture/Bottle.png" id="5_hfpj2"]
+
+[sub_resource type="Gradient" id="Gradient_5lr32"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6987952)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ha34j"]
+gradient = SubResource("Gradient_5lr32")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sojyo"]
-radius = 28.160255
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_sojyo"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5lr32"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ha34j"]
+resource_name = "Walk"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.09773843811168285, -0.0942477796076934]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15), Vector2(0, 0), Vector2(0, -15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sojyo"]
+_data = {
+&"Idle": SubResource("Animation_sojyo"),
+&"RESET": SubResource("Animation_5lr32"),
+&"Walk": SubResource("Animation_ha34j")
+}
 
 [node name="Ilmuan" type="CharacterBody2D" unique_id=11230797]
 script = ExtResource("1_5lr32")
 
+[node name="SHADO" type="Sprite2D" parent="." unique_id=2070929949]
+self_modulate = Color(1, 1, 1, 0.37254903)
+show_behind_parent = true
+texture_filter = 2
+scale = Vector2(0.4595657, 0.27262348)
+texture = SubResource("GradientTexture2D_ha34j")
+
 [node name="Colsi" type="CollisionShape2D" parent="." unique_id=1939978049]
+position = Vector2(0, -0.6399994)
 shape = SubResource("CircleShape2D_sojyo")
 debug_color = Color(0.99999994, 0.016033605, 0.02410388, 0.41960785)
 
 [node name="DROP" type="Node2D" parent="." unique_id=505568569]
+position = Vector2(0, -27.64)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=244734534]
+[node name="CAM" type="Camera2D" parent="." unique_id=244734534]
+position = Vector2(0, -30)
 zoom = Vector2(0.844, 0.844)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.5
+script = ExtResource("2_sgyqi")
 
 [node name="Senjatas" type="Node2D" parent="." unique_id=325874843]
+position = Vector2(0, -27.64)
 
-[node name="Asap" type="Node2D" parent="Senjatas" unique_id=1908838600]
-position = Vector2(-20, 0)
+[node name="Asap" type="Node2D" parent="Senjatas" unique_id=1908838600 node_paths=PackedStringArray("Nodes")]
+script = ExtResource("2_sojyo")
+Nodes = NodePath("../../AWA/Hands/HandOL")
+
+[node name="GasTrhower" type="Node2D" parent="Senjatas" unique_id=929839413 node_paths=PackedStringArray("Nodes")]
+script = ExtResource("2_sojyo")
+Nodes = NodePath("../../AWA/Hands/HandOL")
 
 [node name="AWA" type="Sprite2D" parent="." unique_id=1497121813]
-scale = Vector2(0.245, 0.245)
-texture = ExtResource("2_ha34j")
+z_index = 1
+texture_filter = 1
+position = Vector2(1, -29)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_5lr32")
+
+[node name="AP" type="AnimationPlayer" parent="AWA" unique_id=429881718]
+libraries/ = SubResource("AnimationLibrary_sojyo")
+autoplay = &"Walk"
+speed_scale = 2.0
+
+[node name="Hands" type="Node2D" parent="AWA" unique_id=755559293]
+show_behind_parent = true
+
+[node name="HandOL" type="Sprite2D" parent="AWA/Hands" unique_id=910796602]
+show_behind_parent = true
+position = Vector2(40.321968, 48.304478)
+rotation = 1.0471976
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("3_ha34j")
+offset = Vector2(-2.54, -6.85)
+
+[node name="OVR" type="Sprite2D" parent="AWA/Hands/HandOL" unique_id=1152329991]
+scale = Vector2(0.60832965, 0.60832965)
+texture = ExtResource("5_hfpj2")
+
+[node name="HandOR" type="Sprite2D" parent="AWA/Hands" unique_id=779029143]
+z_index = 1
+position = Vector2(-48.266506, 46.03613)
+rotation = 2.2078242
+texture = ExtResource("3_ha34j")
+offset = Vector2(-2.54, -6.85)
+
+[connection signal="hitted_virus" from="." to="." method="_on_hitted_virus"]

@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://cvnkn5otwnnq"]
+
+[ext_resource type="Script" uid="uid://ddkww8qadnwm2" path="res://enemy.gd" id="1_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://bw0ibm0wecwtx" path="res://Lib/Texture/Prototexture.png" id="2_iifgy"]
+[ext_resource type="Texture2D" uid="uid://b2eqfcjbduyr1" path="res://Lib/Texture/topeng K1.png" id="3_epg4t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qi2p4"]
+radius = 12.369317
+
+[sub_resource type="Animation" id="Animation_qi2p4"]
+resource_name = "Out"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, -24.489796), Vector2(93.87755, -40.816322), Vector2(150, 85.714)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iifgy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -24.489796)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epg4t"]
+_data = {
+&"Out": SubResource("Animation_qi2p4"),
+&"RESET": SubResource("Animation_iifgy")
+}
+
+[sub_resource type="Animation" id="Animation_epg4t"]
+resource_name = "HITTED"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0.27, 0.27), Vector2(0.245, 0.245)]
+}
+
+[sub_resource type="Animation" id="Animation_3yqyl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.245, 0.245)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wujgv"]
+_data = {
+&"HITTED": SubResource("Animation_epg4t"),
+&"RESET": SubResource("Animation_3yqyl")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi2p4"]
+height = 56.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=565057103]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_qi2p4")
+
+[node name="Colsi" type="CollisionShape2D" parent="." unique_id=1172212302]
+position = Vector2(0, 0.3600006)
+shape = SubResource("CircleShape2D_qi2p4")
+debug_color = Color(0.99999994, 0.016033605, 0.02410388, 0.41960785)
+
+[node name="Enem" type="Sprite2D" parent="." unique_id=2000179692]
+self_modulate = Color(1, 0.7176471, 0.7607843, 1)
+z_index = 1
+position = Vector2(0, -23.64)
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("2_iifgy")
+
+[node name="Mask" type="Sprite2D" parent="Enem" unique_id=1281273512]
+position = Vector2(0, -24.489796)
+scale = Vector2(0.5761658, 0.5761658)
+texture = ExtResource("3_epg4t")
+
+[node name="Maskout" type="AnimationPlayer" parent="Enem/Mask" unique_id=559220848]
+libraries/ = SubResource("AnimationLibrary_epg4t")
+
+[node name="HIT" type="AnimationPlayer" parent="Enem" unique_id=286492544]
+libraries/ = SubResource("AnimationLibrary_wujgv")
+speed_scale = 2.0
+
+[node name="Hurbox" type="StaticBody2D" parent="." unique_id=1788382927]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurbox" unique_id=103576805]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_qi2p4")
+debug_color = Color(0.9863375, 0, 0.32941782, 0.41960785)
